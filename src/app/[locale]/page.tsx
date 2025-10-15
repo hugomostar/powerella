@@ -16,7 +16,7 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
-import { type ArticleWithSlug } from '@/lib/articles'
+import { getAllArticles, type ArticleWithSlug } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -141,37 +141,8 @@ function Photos() {
   )
 }
 
-export default function Home() {
-  const articles = [
-    {
-      slug: 'the-franciscan-path',
-      title: 'The Franciscan Path: A Guide to a Simpler Life',
-      date: '2024-10-14',
-      description:
-        'Discover how the teachings of St. Francis can guide you towards a more meaningful and simpler life, filled with purpose and joy.',
-    },
-    {
-      slug: 'finding-strength-in-humility',
-      title: 'Finding Strength in Humility: Lessons from St. Francis',
-      date: '2024-09-20',
-      description:
-        'Explore the profound strength that comes from a humble heart and how it can empower you on your spiritual journey.',
-    },
-    {
-      slug: 'pilgrimage-to-assisi',
-      title: 'Pilgrimage to Assisi: A Journey of Faith',
-      date: '2024-08-15',
-      description:
-        'Join us on a virtual pilgrimage to Assisi, the birthplace of St. Francis, and. experience the transformative power of this sacred place.',
-    },
-    {
-      slug: 'the-power-of-prayer',
-      title: 'The Power of Prayer: Connecting with God in Daily Life',
-      date: '2024-07-30',
-      description:
-        'Learn how to cultivate a deeper connection with God through the practice of daily prayer and meditation.',
-    },
-  ]
+export default async function Home({ params: { locale } }: { params: { locale: string } }) {
+  const articles = (await getAllArticles(locale)).slice(0, 3)
 
   return (
     <>

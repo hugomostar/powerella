@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: { params: { slug: string, loc
     }
 }
 
+export const dynamic = 'force-static';
+
 export default async function ArticlePage({ params: paramsPromise }: { params: Promise<{ slug: string, locale: string }> }) {
     const params = await paramsPromise
     let article = await getArticle(params.slug, params.locale)

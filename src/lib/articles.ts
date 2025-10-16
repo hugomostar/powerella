@@ -24,7 +24,7 @@ async function importArticle(articleFilename: string, locale: string): Promise<A
 
 export async function getAllArticles(locale: string): Promise<(ArticleWithSlug & { component: any })[]> {
   let articleFilenames = await glob(['*.mdx', '*/page.mdx'], {
-    cwd: path.resolve(process.cwd(), `content/articles/${locale}`),
+    cwd: `content/articles/${locale}`,
   })
 
   let articles = await Promise.all(articleFilenames.map((articleFilename) => importArticle(articleFilename, locale)))

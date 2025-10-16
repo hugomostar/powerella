@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 export default async function ArticlesIndex({ params: paramsPromise }: { params: Promise<{ locale: string }> }) {
   const params = await paramsPromise;
   let articles = await getAllArticles(params.locale)
-console.log(articles)
+
   return (
       <SimpleLayout
           title="Writing on software design, company building, and the aerospace industry."

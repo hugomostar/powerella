@@ -127,7 +127,7 @@ function MobileNavigation(
             <MobileNavItem href="/about">{t('about')}</MobileNavItem>
             <MobileNavItem href="/articles">{t('articles')}</MobileNavItem>
             <MobileNavItem href="/pilgrimages">{t('pilgrimages')}</MobileNavItem>
-            <MobileNavItem href="/webshop/">{t('webshop')}</MobileNavItem>
+            <MobileNavItem href="https://dev.shop.powerellapilgrim.com/">{t('webshop')}</MobileNavItem>
           </ul>
         </nav>
       </PopoverPanel>
@@ -172,7 +172,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         <NavItem href="/about">{t('about')}</NavItem>
         <NavItem href="/articles">{t('articles')}</NavItem>
         <NavItem href="/pilgrimages">{t('pilgrimages')}</NavItem>
-        <NavItem href="/webshop/">{t('webshop')}</NavItem>
+        <NavItem href="http://dev.shop.powerellapilgrim.com/">{t('webshop')}</NavItem>
       </ul>
     </nav>
   );
